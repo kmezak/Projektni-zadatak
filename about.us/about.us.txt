@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 Povijesni razvoj smartphona - Početna</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            line-height: 1.7; 
+            color: #1e293b; 
+            background: linear-gradient(135deg, #f1f8ff 0%, #eaf4ff 30%, #e3f0ff 60%, #dbe8ff 100%);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+        main { margin-top: 90px; }
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        h1 { 
+            color: #1e293b; 
+            text-align: center; 
+            margin-bottom: 3rem; 
+            font-weight: 700;
+            position: relative;
+            padding: 1rem 2rem;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #3b82f6, #10b981, #f59e0b, #ef4444) border-box;
+            border-radius: 20px;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            font-size: clamp(2.8rem, 5vw, 4.2rem); 
+            line-height: 1.1;
+        }
+        
+        .content { 
+            background: rgba(255,255,255,0.9); 
+            backdrop-filter: blur(20px);
+            padding: 4rem 3.5rem; 
+            border-radius: 24px; 
+            margin-bottom: 3rem; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .content:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+        }
+        p { 
+            margin-bottom: 1.8rem; 
+            font-size: 1.1rem; 
+            color: #334155;
+            text-align: justify;
+        }
+        
+        .image-container { 
+            position: relative; 
+            margin: 3rem 0; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .image-container:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        .image-container img { 
+            width: 100%; 
+            height: 350px; 
+            object-fit: cover; 
+        }
+        
+        .social-icons { 
+            display: flex; 
+            justify-content: center; 
+            gap: 2rem; 
+            margin: 4rem 0;
+        }
+        .social-icons a { 
+            width: 65px; 
+            height: 65px; 
+            border-radius: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 1.5rem; 
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .facebook { background: #1877F2; color: white; }
+        .instagram { 
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            color: white; 
+        }
+        .twitter { background: #000000; color: white; }
+        .social-icons a:hover { 
+            transform: translateY(-6px) scale(1.1); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+            .content { padding: 3rem 2rem; }
+            .social-icons { gap: 1.5rem; }
+            .social-icons a { width: 55px; height: 55px; font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="homepage">
+            <h1>📱 Povijesni razvoj smartphona</h1>
+            <div class="content">
+                <p>Ova web stranica predstavlja detaljan povijesni pregled razvoja pametnih telefona od prvih mobilnih uređaja do suvremenih tehnoloških čuda. Cilj stranice je prikazati ključne faze evolucije mobilne komunikacije koja je revolucionirala svakodnevni život.</p>
+                
+                <p>Prvi mobilni telefoni bili su veliki, skupi i namijenjeni isključivo poslovnim korisnicima. S vremenom su postajali manji, pristupačniji i puni novih mogućnosti poput SMS poruka, boje ekrana, kamera i interneta. Ključni preokret dogodio se 2007. godine kada je Apple lansirao prvi iPhone.</p>
+                
+                <p>Danas pametni telefoni nisu samo telefoni - oni su računala, kamere, glazbeni playeri, navigacijski sustavi i vrata prema digitalnom svijetu. Svaki dan koristimo tehnologiju koja je proizašla iz desetljeća istraživanja i inovacija.</p>
+            </div>
+
+            <div class="image-container">
+                <img src="images/početna.jpg" alt="Evolucija mobilnih telefona">
+            </div>
+
+            <div class="social-icons">
+                <a href="#" class="facebook" aria-label="Facebook">f</a>
+                <a href="#" class="instagram" aria-label="Instagram">ı</a>
+                <a href="#" class="twitter" aria-label="Twitter">X</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📧 Kontakt - Studentski projekt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            line-height: 1.7; 
+            color: #1e293b; 
+            background: linear-gradient(135deg, #f1f8ff 0%, #eaf4ff 30%, #e3f0ff 60%, #dbe8ff 100%);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+        main { margin-top: 90px; }
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        h2 { 
+            color: #1e293b; 
+            text-align: center; 
+            margin-bottom: 3.5rem; 
+            font-weight: 700;
+            position: relative;
+            padding: 1rem 2rem;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #3b82f6, #10b981, #f59e0b, #ef4444) border-box;
+            border-radius: 20px;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            font-size: clamp(1.9rem, 4vw, 2.9rem);
+        }
+        
+        #map { 
+            height: 600px !important; 
+            width: 100% !important; 
+            border-radius: 20px; 
+            margin-bottom: 3rem; 
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+            display: block;
+        }
+        
+        .contact-form { 
+            background: rgba(255,255,255,0.92); 
+            backdrop-filter: blur(20px);
+            padding: 4.5rem; 
+            border-radius: 24px; 
+            max-width: 700px; 
+            margin: 0 auto;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.1);
+        }
+        .form-group { margin-bottom: 2rem; }
+        input, textarea, select { 
+            width: 100%; 
+            padding: 1.3rem 1.6rem; 
+            border: 2px solid #e2e8f0; 
+            border-radius: 16px; 
+            font-size: 1rem; 
+            font-family: 'Inter', sans-serif;
+            background: white;
+            transition: all 0.3s ease;
+            color: #1e293b;
+        }
+        input:focus, textarea:focus, select:focus { 
+            outline: none; 
+            border-color: #3b82f6; 
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+        }
+        .checkbox-group { 
+            display: flex; 
+            align-items: flex-start; 
+            gap: 1rem; 
+            font-size: 1.1rem;
+            color: #475569;
+        }
+        button { 
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8); 
+            color: white; 
+            padding: 1.4rem 3rem; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            cursor: pointer; 
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        button:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 35px rgba(59,130,246,0.4);
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+            .contact-form { padding: 3rem 2rem; }
+            #map { height: 400px !important; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="contact">
+            <h2>📧 Kontakt informacije</h2>
+            
+            <div id="map">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2772.695712748638!2d15.97878181593539!3d45.812283879118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765dd9b72d2a7b7%3A0x41c658a0d3d2b5d6!2sZagreb%2C%20Hrvatska!5e0!3m2!1shr!2shr!4v1707785551234!5m2!1shr!2shr" 
+                    width="100%" 
+                    height="600" 
+                    style="border:0; border-radius:20px; display:block;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Ime i prezime *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email adresa *" required>
+                </div>
+                <div class="form-group">
+                    <select required>
+                        <option value="">Odaberite državu *</option>
+                        <option value="hr">Hrvatska</option>
+                        <option value="si">Slovenija</option>
+                        <option value="ba">Bosna i Hercegovina</option>
+                        <option value="rs">Srbija</option>
+                        <option value="de">Njemačka</option>
+                        <option value="other">Ostale države</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-group">
+                        <input type="checkbox"> Želim primati novosti i ažuriranja
+                    </label>
+                </div>
+                <div class="form-group">
+                    <textarea rows="6" placeholder="Vaša poruka ili pitanje *" required></textarea>
+                </div>
+                <button type="submit">Pošalji upit</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖼️ Galerija - Studentski projekt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', system-ui, sans-serif; 
+            line-height: 1.7; 
+            color: #1e293b; 
+            background: linear-gradient(135deg, #f1f8ff 0%, #eaf4ff 30%, #e3f0ff 60%, #dbe8ff 100%);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+        main { margin-top: 90px; }
+        section { padding: 6rem 2rem; max-width: 1200px; margin: 0 auto; }
+        
+        h2 { 
+            color: #1e293b; 
+            text-align: center; 
+            margin-bottom: 3.5rem; 
+            font-weight: 700;
+            position: relative;
+            padding: 1rem 2rem;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #3b82f6, #10b981, #f59e0b, #ef4444) border-box;
+            border-radius: 20px;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            font-size: clamp(1.9rem, 4vw, 2.9rem);
+        }
+
+        /* GALERIJA */
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 3rem;
+        }
+        .gallery-item { 
+            position: relative; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+        }
+        .gallery-item:hover { 
+            transform: scale(1.03); 
+            box-shadow: 0 25px 55px rgba(0,0,0,0.15);
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-content {
+            position: relative;
+            margin: 5% auto;
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            position: absolute;
+            right: 2rem;
+            top: 1.5rem;
+            color: #64748b;
+            font-size: 2.5rem;
+            font-weight: 300;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .close:hover {
+            color: #1e293b;
+            transform: scale(1.1);
+        }
+        .modal h3 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        .modal p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #334155;
+            margin-bottom: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+            .modal-content { 
+                margin: 10% auto; 
+                width: 95%; 
+                padding: 2rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="gallery">
+            <h2>🖼️ Vizualni pregled povijesti</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openModal('modal1')">
+                    <img src="images/motorola.jpg" alt="Motorola DynaTAC">
+                </div>
+                <div class="gallery-item" onclick="openModal('modal2')">
+                    <img src="images/nokia2.jpg" alt="Nokia 7110">
+                </div>
+                <div class="gallery-item" onclick="openModal('modal3')">
+                    <img src="images/moderni.jpg" alt="Moderni pametni telefon">
+                </div>
+                <div class="gallery-item" onclick="openModal('modal4')">
+                    <img src="images/flip.jpg" alt="Savijanje telefona">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL PROZORI -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h3>1973 - Motorola DynaTAC 8000X</h3>
+            <p>Prvi javni mobilni poziv Martina Coopera. Telefon težio 1,1 kg, antena 25 cm, baterija 30 min. Cijena: 4000 dolara - više od malog automobila!</p>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h3>1999 - Nokia 7110 (WAP telefon)</h3>
+            <p>Prvi telefon s WAP preglednikom za internet. Početak mobilnog weba i SMS revolucije koja je promijenila svjetsku komunikaciju.</p>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h3>2026 - Moderna 5G era</h3>
+            <p>5G mreže, AI asistenti, 200MP kamere, savijanje ekrana, baterije 5000mAh+. Snaga veća od NASA računala iz 1969.!</p>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <h3>2020+ - Revolucija savijanja</h3>
+            <p>Samsung Galaxy Z serije briše granice. Telefon/tablet u džepu. Budućnost dizajna mobilnih uređaja.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
